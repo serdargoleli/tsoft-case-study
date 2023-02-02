@@ -1,0 +1,90 @@
+.hero {
+  background: $light-gray;
+  text-align: center;
+  padding-top: 5.625rem;
+  padding-bottom: 5.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+
+  &-title {
+    color: $dark-blue;
+    font-weight: $font-bold;
+    margin-bottom: 1rem;
+    font-size: 1.375rem;
+    @include lineHeight(1.375rem);
+  }
+  &-content {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: $dark-blue;
+    font-weight: $font-regular;
+    max-width: 580px;
+    margin-bottom: 2.375rem;
+    font-size: 1.125rem;
+    @include lineHeight(1.125rem);
+  }
+  &-search-box {
+    max-width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    background: #ffffff;
+    border: 1px solid $border-color;
+    box-shadow: 0px 16px 35px -15px rgba(2, 5, 132, 0.15);
+    @include mq("tablet") {
+      flex-direction: row;
+      max-width: max-content;
+    }
+    .select-box {
+      .btn-modal {
+        padding: 0.75rem 0.9375rem;
+        background: none;
+        transition: $transition;
+        border-radius: 0.625rem;
+        &:hover {
+          background: $dark-blue;
+          color: #ffffff;
+        }
+      }
+    }
+    .divider {
+      display: none;
+      width: 1px;
+      height: 54px;
+      background: $light-blue;
+      margin-left: 0.9375rem;
+      margin-right: 0.9375rem;
+      @include mq("tablet") {
+        display: block;
+      }
+    }
+    .input-box {
+      display: flex;
+      align-items: center;
+      opacity: 0.6;
+      color: $dark-blue;
+      width: 421px;
+      max-width: 100%;
+      input {
+        width: calc(100% - 1.5rem);
+        border: none;
+        padding: 10px;
+        &:focus,
+        &:active {
+          outline: none;
+        }
+        &::placeholder {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+}
