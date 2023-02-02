@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.14",
     "bootstrap": "^5.2.3",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.45"
