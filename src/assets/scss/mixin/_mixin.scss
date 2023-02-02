@@ -1,0 +1,16 @@
+@mixin mq($width: "tablet") {
+  @if ($width == "tablet") {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if ($width == "desktop") {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}
+
+//fs * 1.5 => UI satır aralığı
+@mixin lineHeight($fontSize) {
+  line-height: $fontSize * 1.5;
+}
