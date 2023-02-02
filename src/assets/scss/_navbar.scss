@@ -103,12 +103,12 @@
     border-radius: 0.625rem;
   }
   .btn-close-menu {
-    background: #f00;
     position: absolute;
-    left: -30px;
+    left: -4.5%;
     top: 3%;
     padding: 0.625rem;
     border-radius: 0.625rem;
+    background: $light-blue;
     @include mq("desktop") {
       display: none;
     }
@@ -129,7 +129,7 @@
   }
   .mobile-menu-show {
     width: 70%;
-    padding: 3.43rem 1.56rem;
+    padding: 5rem 1.56rem 3.43rem;
     overflow: visible;
     .menu-item {
       &.active,
