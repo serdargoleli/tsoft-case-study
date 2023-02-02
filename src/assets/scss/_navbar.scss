@@ -1,0 +1,141 @@
+.header {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid $border-color;
+  background-color: $light-gray;
+  .logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    img {
+      width: 140px;
+      height: 40px;
+      max-width: 100%;
+    }
+  }
+
+  // menu mobile görünümüne göre ayarladı, show olduğunda width eklenecek;
+  // ekran büyüdüğünde masaüstü görünümüne geçmesi için mq("desktop")
+  .menu {
+    width: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    padding: 0;
+    overflow: hidden;
+    background-color: $dark-blue;
+    transition: $transition;
+
+    @include mq("desktop") {
+      width: 100% !important;
+      height: 100% !important;
+      overflow: visible;
+      position: relative;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      padding: 0 !important;
+    }
+    &-item {
+      border-radius: 2rem;
+      color: $light-blue;
+      opacity: 0.7;
+      padding: 0.625rem 0.9375rem;
+      font-weight: $font-medium;
+      transition: $transition;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      @include lineHeight(1rem);
+      @include mq("desktop") {
+        color: $dark-blue;
+        margin-bottom: 0;
+      }
+      &:hover,
+      &.active {
+        background: $light-blue;
+        color: $dark-blue;
+        opacity: 1;
+      }
+    }
+  }
+
+  .buttons {
+    display: none;
+    @include mq("desktop") {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .button {
+      border-radius: 0.625rem;
+      transition: $transition;
+      @include mq("desktop") {
+        padding: 0.9375rem 1.875rem;
+      }
+      &.btn-ghost {
+        background: transparent;
+        border: 1px solid transparent;
+        color: $dark-blue;
+        &:hover {
+          border-color: $dark-blue;
+        }
+      }
+      &.btn-primary {
+        background: $dark-blue;
+        color: #ffffff;
+        &:hover {
+          background: $light-blue;
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+  .btn-open-menu {
+    background: $light-blue;
+    color: $dark-blue;
+    padding: 0.9375rem;
+    border-radius: 0.625rem;
+  }
+  .btn-close-menu {
+    background: #f00;
+    position: absolute;
+    left: -30px;
+    top: 3%;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
+    @include mq("desktop") {
+      display: none;
+    }
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: #20214254;
+    z-index: 98;
+    @include mq("desktop") {
+      display: none;
+    }
+  }
+  .mobile-menu-show {
+    width: 70%;
+    padding: 3.43rem 1.56rem;
+    overflow: visible;
+    .menu-item {
+      &.active,
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+}

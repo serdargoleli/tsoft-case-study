@@ -1,4 +1,148 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap");
+.header {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #efefff;
+  background-color: #FCFCFF;
+}
+.header .logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header .logo img {
+  width: 140px;
+  height: 40px;
+  max-width: 100%;
+}
+.header .menu {
+  width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  padding: 0;
+  overflow: hidden;
+  background-color: #202142;
+  transition: all 0.3s;
+}
+@media (min-width: 992px) {
+  .header .menu {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 0 !important;
+  }
+}
+.header .menu-item {
+  border-radius: 2rem;
+  color: #f1f1fd;
+  opacity: 0.7;
+  padding: 0.625rem 0.9375rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+@media (min-width: 992px) {
+  .header .menu-item {
+    color: #202142;
+    margin-bottom: 0;
+  }
+}
+.header .menu-item:hover, .header .menu-item.active {
+  background: #f1f1fd;
+  color: #202142;
+  opacity: 1;
+}
+.header .buttons {
+  display: none;
+}
+@media (min-width: 992px) {
+  .header .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.header .buttons .button {
+  border-radius: 0.625rem;
+  transition: all 0.3s;
+}
+@media (min-width: 992px) {
+  .header .buttons .button {
+    padding: 0.9375rem 1.875rem;
+  }
+}
+.header .buttons .button.btn-ghost {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #202142;
+}
+.header .buttons .button.btn-ghost:hover {
+  border-color: #202142;
+}
+.header .buttons .button.btn-primary {
+  background: #202142;
+  color: #ffffff;
+}
+.header .buttons .button.btn-primary:hover {
+  background: #f1f1fd;
+  color: #202142;
+}
+.header .btn-open-menu {
+  background: #f1f1fd;
+  color: #202142;
+  padding: 0.9375rem;
+  border-radius: 0.625rem;
+}
+.header .btn-close-menu {
+  background: #f00;
+  position: absolute;
+  left: -30px;
+  top: 3%;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+}
+@media (min-width: 992px) {
+  .header .btn-close-menu {
+    display: none;
+  }
+}
+.header .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(32, 33, 66, 0.3294117647);
+  z-index: 98;
+}
+@media (min-width: 992px) {
+  .header .overlay {
+    display: none;
+  }
+}
+.header .mobile-menu-show {
+  width: 70%;
+  padding: 3.43rem 1.56rem;
+  overflow: visible;
+}
+.header .mobile-menu-show .menu-item.active, .header .mobile-menu-show .menu-item:hover {
+  color: #202142;
+}
+
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -6,4 +150,9 @@
 a {
   text-decoration: none;
   color: #202142;
+}
+
+button {
+  border: none;
+  outline: none;
 }
