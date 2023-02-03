@@ -6,6 +6,7 @@
 a {
   text-decoration: none;
   color: #202142;
+  cursor: pointer;
 }
 
 button {
@@ -27,7 +28,7 @@ ul {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: 1px solid #efefff;
-  background-color: #FCFCFF;
+  background-color: #fcfcff;
 }
 .header .logo {
   height: 100%;
@@ -168,7 +169,7 @@ ul {
 }
 
 .hero {
-  background: #FCFCFF;
+  background: #fcfcff;
   text-align: center;
   padding-top: 5.625rem;
   padding-bottom: 5.625rem;
@@ -256,4 +257,106 @@ ul {
 }
 .hero-search-box .input-box input::placeholder {
   color: #202142;
+}
+
+.section-filtered {
+  margin-top: 2.5rem;
+}
+.section-filtered .view-box {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fcfcff;
+  border: 1px solid #efefff;
+  padding: 0.3125rem;
+  border-radius: 4.375rem;
+}
+@media (min-width: 768px) {
+  .section-filtered .view-box {
+    width: max-content;
+  }
+}
+.section-filtered .view-box .btn-view-type {
+  width: 50%;
+  padding: 0.9688rem 1.875rem;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 2.8125rem;
+  color: #202142;
+  opacity: 0.6;
+  text-align: center;
+  text-transform: capitalize;
+  transition: all 0.3s;
+}
+.section-filtered .view-box .btn-view-type:hover, .section-filtered .view-box .btn-view-type.active {
+  background: #ffffff;
+  border-color: #efefff;
+  box-shadow: 0px 10px 15px -10px rgba(2, 5, 132, 0.05);
+  opacity: 1;
+}
+.section-filtered .tab-buttons {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+@media (min-width: 992px) {
+  .section-filtered .tab-buttons {
+    margin-top: 0;
+  }
+}
+.section-filtered .tab-buttons .tab-button {
+  padding: 0.625rem 0.9375rem;
+  border: 1px solid transparent;
+  border-radius: 2rem;
+  color: #202142;
+  opacity: 0.6;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+@media (min-width: 768px) {
+  .section-filtered .tab-buttons .tab-button {
+    font-size: 1rem;
+  }
+}
+.section-filtered .tab-buttons .tab-button.active, .section-filtered .tab-buttons .tab-button:hover {
+  border-color: #efefff;
+  background-color: #fcfcff;
+  opacity: 1;
+}
+.section-filtered .tools {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+@media (min-width: 992px) {
+  .section-filtered .tools {
+    margin-top: 0;
+  }
+}
+.section-filtered .tools .btn-tools {
+  background: #fcfcff;
+  border: 1px solid #efefff;
+  padding: 0.7rem;
+  margin-right: 0.9375rem;
+  border-radius: 100%;
+}
+@media (min-width: 992px) {
+  .section-filtered .tools .btn-tools {
+    padding: 1rem;
+  }
+}
+.section-filtered .tools .btn-tools:last-child {
+  margin-right: 0;
+}
+.section-filtered .tools .btn-tools.active {
+  border-color: #ff6a95;
+}
+.section-filtered .tools .btn-tools img {
+  width: 24px;
+  height: 24px;
 }

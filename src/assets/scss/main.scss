@@ -6,3 +6,104 @@
 // Pages
 @import "navbar";
 @import "hero";
+
+.section-filtered {
+  margin-top: 2.5rem;
+  // Lastest & Popular
+  .view-box {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background: $light-gray;
+    border: 1px solid $border-color;
+    padding: 0.3125rem;
+    border-radius: 4.375rem;
+    @include mq("tablet") {
+      width: max-content;
+    }
+
+    .btn-view-type {
+      width: 50%;
+      padding: 0.9688rem 1.875rem;
+      display: inline-block;
+      border: 1px solid transparent;
+      border-radius: 2.8125rem;
+      color: $dark-blue;
+      opacity: 0.6;
+      text-align: center;
+      text-transform: capitalize;
+      transition: $transition;
+      &:hover,
+      &.active {
+        background: #ffffff;
+        border-color: $border-color;
+        box-shadow: 0px 10px 15px -10px rgba(2, 5, 132, 0.05);
+        opacity: 1;
+      }
+    }
+  }
+
+  // All & Web & Mobile & UI Kit & Coded
+  .tab-buttons {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    @include mq("desktop") {
+      margin-top: 0;
+    }
+    .tab-button {
+      padding: 0.625rem 0.9375rem;
+      border: 1px solid transparent;
+      border-radius: 2rem;
+      color: $dark-blue;
+      opacity: 0.6;
+      font-size: .9rem;
+      text-transform: uppercase;
+      transition: $transition;
+      @include mq("tablet") {
+        font-size: 1rem;
+      }
+      &.active,
+      &:hover {
+        border-color: $border-color;
+        background-color: $light-gray;
+        opacity: 1;
+      }
+    }
+  }
+
+  // Figma & skecth & indesign...
+  .tools {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    @include mq("desktop") {
+      margin-top: 0;
+    }
+    .btn-tools {
+      background: $light-gray;
+      border: 1px solid $border-color;
+      padding: 0.7rem;
+      margin-right: 0.9375rem;
+      border-radius: 100%;
+      @include mq("desktop") {
+        padding: 1rem;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+      &.active {
+        border-color: $border-color-second;
+      }
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
