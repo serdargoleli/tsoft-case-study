@@ -1,0 +1,62 @@
+.post-card {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2.5rem;
+  &-tool {
+    background: $light-gray;
+    border: 1px solid $border-color;
+    position: absolute;
+    padding: 1rem;
+    border-radius: 100%;
+    top: 1.25rem;
+    left: 1.25rem;
+  }
+  &-image {
+    img {
+      border-radius: 0.9375rem;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+    &-left {
+      display: flex;
+      align-items: center;
+      .author-image {
+        width: 38px;
+        height: 38px;
+        border-radius: 100%;
+      }
+      .author-name {
+        margin-left: 0.875rem;
+        margin-bottom: 0;
+        font-size: 0.875rem;
+        font-weight: $font-light;
+        @include lineHeight(0.875rem);
+        span {
+          font-weight: $font-bold;
+        }
+      }
+    }
+    &-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .icon-box {
+        span {
+          font-size: 0.875rem;
+          @include lineHeight(0.875rem);
+        }
+        .icon {
+          margin-right: 5px;
+          width: 1.625rem;
+          height: 1.625rem;
+        }
+      }
+    }
+  }
+}

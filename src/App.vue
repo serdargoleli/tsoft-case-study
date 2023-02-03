@@ -41,10 +41,19 @@
       </div>
     </div>
   </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" v-for="post of posts" :key="post.id">
+        <PostCard :post="post" />
+      </div>
+    </div>
+  </div>
 </template>
 <script setup>
   import Navbar from "@/components/Navbar.vue";
   import Hero from "@/components/Hero.vue";
+  import PostCard from "@/components/PostCard.vue";
   import { ref, reactive } from "vue";
   import { data } from "./data";
   const searchText = ref("");

@@ -6,6 +6,7 @@
 // Pages
 @import "navbar";
 @import "hero";
+@import "postCard";
 
 .section-filtered {
   margin-top: 2.5rem;
@@ -59,7 +60,7 @@
       border-radius: 2rem;
       color: $dark-blue;
       opacity: 0.6;
-      font-size: .9rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       transition: $transition;
       @include mq("tablet") {
