@@ -203,7 +203,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 0.625rem;
   border-radius: 0.625rem;
   background: #ffffff;
@@ -314,8 +314,8 @@ ul {
 }
 .post-card-footer-right .icon-box .icon {
   margin-right: 5px;
-  width: 1.625rem;
-  height: 1.625rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .section-filtered {
@@ -337,7 +337,7 @@ ul {
 }
 .section-filtered .view-box .btn-view-type {
   width: 50%;
-  padding: 0.9688rem 1.875rem;
+  padding: 0.6688rem 1.575rem;
   display: inline-block;
   border: 1px solid transparent;
   border-radius: 2.8125rem;
@@ -345,7 +345,13 @@ ul {
   opacity: 0.6;
   text-align: center;
   text-transform: capitalize;
+  font-weight: 600;
   transition: all 0.3s;
+}
+@media (min-width: 992px) {
+  .section-filtered .view-box .btn-view-type {
+    padding: 0.9688rem 1.875rem;
+  }
 }
 .section-filtered .view-box .btn-view-type:hover, .section-filtered .view-box .btn-view-type.active {
   background: #ffffff;
@@ -371,9 +377,10 @@ ul {
   border-radius: 2rem;
   color: #202142;
   opacity: 0.6;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   transition: all 0.3s;
+  font-weight: 500;
 }
 @media (min-width: 768px) {
   .section-filtered .tab-buttons .tab-button {
@@ -403,6 +410,7 @@ ul {
   padding: 0.7rem;
   margin-right: 0.9375rem;
   border-radius: 100%;
+  transition: all 0.3s;
 }
 @media (min-width: 992px) {
   .section-filtered .tools .btn-tools {
@@ -412,7 +420,7 @@ ul {
 .section-filtered .tools .btn-tools:last-child {
   margin-right: 0;
 }
-.section-filtered .tools .btn-tools.active {
+.section-filtered .tools .btn-tools:hover, .section-filtered .tools .btn-tools.active {
   border-color: #ff6a95;
 }
 .section-filtered .tools .btn-tools img {
