@@ -16,11 +16,11 @@
       <div class="post-card-footer-right">
         <div class="icon-box me-2">
           <CodeBracketIcon class="icon" />
-          <span>25</span>
+          <span> {{ post.hits }} </span>
         </div>
         <div class="icon-box">
           <img class="icon" src="/like.svg" alt="" />
-          <span>25</span>
+          <span>{{ post.like }} </span>
         </div>
       </div>
     </div>
