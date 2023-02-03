@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <Hero>
-    <input type="text" placeholder="search" v-model="searchText" />
+    <input type="search" placeholder="Search designer name..." v-model="selectedFiltered.searchText" />
   </Hero>
   <div class="container section-filtered">
     <div class="row">
@@ -10,9 +10,10 @@
           <a
             :class="`btn-view-type ${selectedFiltered.viewtype == view ? ' active ' : ''}`"
             v-for="view of viewType"
-            @click.prevent="selectedFiltered.viewtype = view"
-            >{{ view }}</a
+            @click.prevent="selectedFiltered.viewtype = selectedFiltered.viewtype == view ? null : view"
           >
+            {{ view }}
+          </a>
         </div>
       </div>
       <div class="col-12 col-lg-5">
@@ -44,19 +45,27 @@
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4" v-for="post of posts" :key="post.id">
-        <PostCard :post="post" />
-      </div>
+      <template v-if="filtredPosts.length > 0">
+        <div class="col-12 col-md-6 col-lg-4" v-for="post of filtredPosts" :key="post.id">
+          <PostCard :post="post" />
+        </div>
+      </template>
+      <template v-else>
+        <div class="col-12">
+          <div class="alert alert-danger text-center">No posts found for the search criteria...</div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
+
 <script setup>
   import Navbar from "@/components/Navbar.vue";
   import Hero from "@/components/Hero.vue";
   import PostCard from "@/components/PostCard.vue";
-  import { ref, reactive } from "vue";
+  import { ref, reactive, computed } from "vue";
   import { data } from "./data";
-  const searchText = ref("");
+
   const posts = data();
 
   const tools = reactive([
@@ -70,8 +79,25 @@
   const viewType = reactive(["lastest", "popular"]);
 
   const selectedFiltered = reactive({
-    viewtype: "lastest",
+    searchText: "",
+    viewtype: null,
     filteredTab: "all",
     selectedTool: null,
+  });
+  const filtredPosts = computed(() => {
+    let platform = selectedFiltered.filteredTab === "all" ? null : selectedFiltered.filteredTab;
+    return posts
+      .filter((post) => {
+        return post.author.toLowerCase().includes(selectedFiltered.searchText.toLocaleLowerCase());
+      })
+      .filter((post) => {
+        return selectedFiltered.viewtype == null || post.viewType.includes(selectedFiltered.viewtype);
+      })
+      .filter((post) => {
+        return selectedFiltered.selectedTool == null || post.tool.includes(selectedFiltered.selectedTool);
+      })
+      .filter((post) => {
+        return platform == null || post.type.includes(platform);
+      });
   });
 </script>
