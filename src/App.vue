@@ -8,8 +8,9 @@
       <div class="col-12 col-lg-3">
         <div class="view-box">
           <a
-            :class="`btn-view-type ${selectedFiltered.viewtype == view ? ' active ' : ''}`"
+            :class="`btn-view-type ${isActive(selectedFiltered.viewtype, view)}`"
             v-for="view of viewType"
+            :key="view"
             @click.prevent="selectedFiltered.viewtype = selectedFiltered.viewtype == view ? null : view"
           >
             {{ view }}
@@ -19,7 +20,7 @@
       <div class="col-12 col-lg-5">
         <div class="tab-buttons">
           <a
-            :class="`tab-button ${selectedFiltered.filteredTab == tab ? 'active' : ''}`"
+            :class="`tab-button  ${isActive(selectedFiltered.filteredTab, tab)}`"
             v-for="tab of tabs"
             :key="tab"
             @click.prevent="selectedFiltered.filteredTab = tab"
@@ -31,7 +32,7 @@
       <div class="col-12 col-lg-4">
         <div class="tools">
           <a
-            :class="`btn-tools ${selectedFiltered.selectedTool == tool.name ? ' active ' : ''}`"
+            :class="`btn-tools ${isActive(selectedFiltered.selectedTool, tool.name)}`"
             v-for="tool of tools"
             :key="tool"
             @click.prevent="selectedFiltered.selectedTool = selectedFiltered.selectedTool == tool.name ? null : tool.name"
@@ -64,19 +65,7 @@
   import Hero from "@/components/Hero.vue";
   import PostCard from "@/components/PostCard.vue";
   import { ref, reactive, computed } from "vue";
-  import { data } from "./data";
-
-  const posts = data();
-
-  const tools = reactive([
-    { name: "figma", path: "figma.svg" },
-    { name: "sketch", path: "sketch.svg" },
-    { name: "indesign", path: "indesign.svg" },
-    { name: "xd", path: "xd.svg" },
-    { name: "ps", path: "ps.svg" },
-  ]);
-  const tabs = reactive(["all", "web", "mobile", "uı kit", "coded"]);
-  const viewType = reactive(["lastest", "popular"]);
+  import { posts, tools, tabs, viewType } from "./data";
 
   const selectedFiltered = reactive({
     searchText: "",
@@ -84,6 +73,7 @@
     filteredTab: "all",
     selectedTool: null,
   });
+
   const filtredPosts = computed(() => {
     let platform = selectedFiltered.filteredTab === "all" ? null : selectedFiltered.filteredTab;
     return posts
@@ -100,4 +90,8 @@
         return platform == null || post.type.includes(platform);
       });
   });
+
+  const isActive = (selected, current) => {
+    return selected === current ? " active " : null;
+  };
 </script>
