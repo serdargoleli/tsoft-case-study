@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <Hero>
-    <input type="search" placeholder="Search designer name..." v-model="selectedFiltered.searchText" />
+    <input type="search" placeholder="Search designer name and title..." v-model="selectedFiltered.searchText" />
   </Hero>
   <div class="container section-filtered">
     <div class="row">
@@ -78,7 +78,10 @@
     let platform = selectedFiltered.filteredTab === "all" ? null : selectedFiltered.filteredTab;
     return posts
       .filter((post) => {
-        return post.author.toLowerCase().includes(selectedFiltered.searchText.toLocaleLowerCase());
+        return (
+          post.author.toLowerCase().includes(selectedFiltered.searchText.toLocaleLowerCase()) ||
+          post.title.toLowerCase().includes(selectedFiltered.searchText.toLocaleLowerCase())
+        );
       })
       .filter((post) => {
         return selectedFiltered.viewtype == null || post.viewType.includes(selectedFiltered.viewtype);
