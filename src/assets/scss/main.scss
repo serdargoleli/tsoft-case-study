@@ -38,7 +38,11 @@
       @include mq("desktop") {
         padding: 0.9688rem 1.875rem;
       }
-      &:hover,
+      &:hover {
+        @include mq("desktop") {
+          @extend &.active;
+        }
+      }
       &.active {
         background: #ffffff;
         border-color: $border-color;
@@ -104,7 +108,11 @@
       &:last-child {
         margin-right: 0;
       }
-      &:hover,
+      &:hover {
+        @include mq("desktop") {
+          @extend &.active;
+        }
+      }
       &.active {
         border-color: $border-color-second;
       }
